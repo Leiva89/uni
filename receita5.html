@@ -43,6 +43,8 @@
         }
         .medication {
             margin-bottom: 20px;
+            border: 1px solid #ccc;
+            padding: 10px;
         }
         .medication h2 {
             font-size: 16px;
@@ -152,6 +154,18 @@
             font-size: 16px;
             cursor: pointer;
         }
+        .remove-button {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .remove-button button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: red;
+            color: white;
+            border: none;
+        }
   </style>
   <script>
    function showSection(sectionId) {
@@ -170,18 +184,39 @@
             var container = document.querySelector('.container');
             var newMenu = document.createElement('div');
             newMenu.className = "menu";
+            var uniqueId = 'med' + (document.querySelectorAll('.medication').length + 1);
             newMenu.innerHTML = `
                 <a href="javascript:void(0)">
                     Selecionar Medicação
                 </a>
                 <div class="dropdown-content">
-                    <a class="enalapril" href="javascript:void(0)" onclick="showSection('med1')">ENALAPRIL 10MG</a>
-                    <a class="hidroclorotiazida" href="javascript:void(0)" onclick="showSection('med2')">HIDROCLOROTIAZIDA 25MG</a>
-                    <a class="metformina" href="javascript:void(0)" onclick="showSection('med3')">METFORMINA 850MG</a>
-                    <a class="sinvastatina" href="javascript:void(0)" onclick="showSection('med4')">SINVASTATINA 20MG</a>
+                    <a class="enalapril" href="javascript:void(0)" onclick="showSection('${uniqueId}')">ENALAPRIL 10MG</a>
+                    <a class="hidroclorotiazida" href="javascript:void(0)" onclick="showSection('${uniqueId}')">HIDROCLOROTIAZIDA 25MG</a>
+                    <a class="metformina" href="javascript:void(0)" onclick="showSection('${uniqueId}')">METFORMINA 850MG</a>
+                    <a class="sinvastatina" href="javascript:void(0)" onclick="showSection('${uniqueId}')">SINVASTATINA 20MG</a>
+                </div>
+                <div class="remove-button">
+                    <button onclick="removeMenu(this)">
+                        Excluir Menu
+                    </button>
+                </div>
+                <div class="medication" id="${uniqueId}" style="display:none;">
+                    <h2>Custom Medication</h2>
+                    <p>Custom instructions for medication.</p>
+                    <div class="icons">
+                        <img src="https://storage.googleapis.com/a1aa/image/Hrxyy9f23DwHZSiYrDkcvKaZqGElYwLYjnue8PCic5IjfkjnA.jpg" alt="Pill icon" width="50" height="50">
+                        <img src="https://storage.googleapis.com/a1aa/image/fb3fSVgSXTpEfoexY5RwVnfuGDew0IGByEz4FtuqJpcv4nc8E.jpg" alt="Clock icon" width="50" height="50">
+                        <img src="https://storage.googleapis.com/a1aa/image/JWLUbNQ67a5iGVqkun986iOQlikCBatx9kGA9MrfymdyP54JA.jpg" alt="Pill bottle icon" width="50" height="50">
+                        <div style="background-color: #e2e3e5; width: 20px; height: 20px; border-radius: 50%;"></div>
+                    </div>
                 </div>
             `;
             container.insertBefore(newMenu, container.querySelector('.add-button'));
+        }
+
+        function removeMenu(button) {
+            var menu = button.closest('.menu');
+            menu.remove();
         }
   </script>
  </head>
@@ -219,6 +254,11 @@
      <a class="sinvastatina" href="javascript:void(0)" onclick="showSection('med4')">
       SINVASTATINA 20MG
      </a>
+    </div>
+    <div class="remove-button">
+     <button onclick="removeMenu(this)">
+      Excluir Menu
+     </button>
     </div>
    </div>
    <div class="medication" id="med1" style="display:none;">

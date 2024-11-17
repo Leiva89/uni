@@ -2,7 +2,7 @@
 
 <head>
     <title>
-        UNI RECEITA
+        Receituário Médico
     </title>
     <style>
         body {
@@ -53,6 +53,8 @@
 
         .medication {
             margin-bottom: 20px;
+            border: 1px solid #ccc;
+            padding: 10px;
         }
 
         .medication h2 {
@@ -106,20 +108,65 @@
 
         .menu {
             margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
         }
 
         .menu a {
             display: block;
             padding: 10px;
-            background-color: #f0f0f0;
             margin-bottom: 5px;
             text-decoration: none;
             color: #000;
             border: 1px solid #ccc;
         }
 
+        .menu a.enalapril {
+            background-color: #cce5ff;
+        }
+
+        .menu a.hidroclorotiazida {
+            background-color: #fff3cd;
+        }
+
+        .menu a.metformina {
+            background-color: #f8d7da;
+        }
+
+        .menu a.sinvastatina {
+            background-color: #d4edda;
+        }
+
+        .menu a.custom {
+            background-color: #e2e3e5;
+        }
+
         .menu a:hover {
             background-color: #ddd;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: relative;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #f1f1f1;
+        }
+
+        .menu:hover .dropdown-content {
+            display: block;
         }
 
         .print-button {
@@ -131,6 +178,31 @@
             padding: 10px 20px;
             font-size: 16px;
             cursor: pointer;
+        }
+
+        .add-button {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .add-button button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .remove-button {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .remove-button button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: red;
+            color: white;
+            border: none;
         }
     </style>
     <script>
@@ -145,9 +217,47 @@
         function printPage() {
             window.print();
         }
+
+        function addMenu() {
+            var container = document.querySelector('.container');
+            var newMenu = document.createElement('div');
+            newMenu.className = "menu";
+            var uniqueId = 'med' + (document.querySelectorAll('.medication').length + 1);
+            newMenu.innerHTML = `
+                <a href="javascript:void(0)">
+                    Selecionar Medicação
+                </a>
+                <div class="dropdown-content">
+                    <a class="enalapril" href="javascript:void(0)" onclick="showSection('${uniqueId}')">ENALAPRIL 10MG</a>
+                    <a class="hidroclorotiazida" href="javascript:void(0)" onclick="showSection('${uniqueId}')">HIDROCLOROTIAZIDA 25MG</a>
+                    <a class="metformina" href="javascript:void(0)" onclick="showSection('${uniqueId}')">METFORMINA 850MG</a>
+                    <a class="sinvastatina" href="javascript:void(0)" onclick="showSection('${uniqueId}')">SINVASTATINA 20MG</a>
+                </div>
+                <div class="remove-button">
+                    <button onclick="removeMenu(this)">
+                        Excluir Menu
+                    </button>
+                </div>
+                <div class="medication" id="${uniqueId}" style="display:none;">
+                    <h2>Custom Medication</h2>
+                    <p>Custom instructions for medication.</p>
+                    <div class="icons">
+                        <img src="https://storage.googleapis.com/a1aa/image/Hrxyy9f23DwHZSiYrDkcvKaZqGElYwLYjnue8PCic5IjfkjnA.jpg" alt="Pill icon" width="50" height="50">
+                        <img src="https://storage.googleapis.com/a1aa/image/fb3fSVgSXTpEfoexY5RwVnfuGDew0IGByEz4FtuqJpcv4nc8E.jpg" alt="Clock icon" width="50" height="50">
+                        <img src="https://storage.googleapis.com/a1aa/image/JWLUbNQ67a5iGVqkun986iOQlikCBatx9kGA9MrfymdyP54JA.jpg" alt="Pill bottle icon" width="50" height="50">
+                        <div style="background-color: #e2e3e5; width: 20px; height: 20px; border-radius: 50%;"></div>
+                    </div>
+                </div>
+            `;
+            container.insertBefore(newMenu, container.querySelector('.add-button'));
+        }
+
+        function removeMenu(button) {
+            var menu = button.closest('.menu');
+            menu.remove();
+        }
     </script>
 </head>
-
 
 <body>
     <div class="container">
@@ -155,7 +265,9 @@
             <h1>
                 RECEITUÁRIO MÉDICO
             </h1>
-            <img alt="Medical icon" height="50" src="C:\xampp\htdocs\receita\receita\ima\logo.net.jpg" width="200" />
+            <img alt="Medical icon" height="50"
+                src="https://storage.googleapis.com/a1aa/image/HP7Fhj2T9fxSBy80bBrs2VA93FkoA5qHDy2jf4KF7KolfkjnA.jpg"
+                width="50" />
         </div>
         <div class="patient">
             <label for="patient">
@@ -167,18 +279,28 @@
             USO INTERNO
         </div>
         <div class="menu">
-            <a href="javascript:void(0)" onclick="showSection('med1')">
-                ENALAPRIL 10MG
+            <a href="javascript:void(0)">
+                Selecionar Medicação
             </a>
-            <a href="javascript:void(0)" onclick="showSection('med2')">
-                HIDROCLOROTIAZIDA 25MG
-            </a>
-            <a href="javascript:void(0)" onclick="showSection('med3')">
-                METFORMINA 850MG
-            </a>
-            <a href="javascript:void(0)" onclick="showSection('med4')">
-                SINVASTATINA 20MG
-            </a>
+            <div class="dropdown-content">
+                <a class="enalapril" href="javascript:void(0)" onclick="showSection('med1')">
+                    ENALAPRIL 10MG
+                </a>
+                <a class="hidroclorotiazida" href="javascript:void(0)" onclick="showSection('med2')">
+                    HIDROCLOROTIAZIDA 25MG
+                </a>
+                <a class="metformina" href="javascript:void(0)" onclick="showSection('med3')">
+                    METFORMINA 850MG
+                </a>
+                <a class="sinvastatina" href="javascript:void(0)" onclick="showSection('med4')">
+                    SINVASTATINA 20MG
+                </a>
+            </div>
+            <div class="remove-button">
+                <button onclick="removeMenu(this)">
+                    Excluir Menu
+                </button>
+            </div>
         </div>
         <div class="medication" id="med1" style="display:none;">
             <h2>
@@ -188,9 +310,14 @@
                 TOMAR 01 COMPRIMIDO DE 12 EM 12 HORAS.
             </p>
             <div class="icons">
-                <img alt="Pill icon" height="50" src="ima/manha.jpeg" width="50" />
-                <img alt="Clock icon" height="50" src="ima/almoco.jpeg" width="50" />
-                <img alt="Pill bottle icon" height="50" src="ima/noite.png"
+                <img alt="Pill icon" height="50"
+                    src="https://storage.googleapis.com/a1aa/image/Hrxyy9f23DwHZSiYrDkcvKaZqGElYwLYjnue8PCic5IjfkjnA.jpg"
+                    width="50" />
+                <img alt="Clock icon" height="50"
+                    src="https://storage.googleapis.com/a1aa/image/fb3fSVgSXTpEfoexY5RwVnfuGDew0IGByEz4FtuqJpcv4nc8E.jpg"
+                    width="50" />
+                <img alt="Pill bottle icon" height="50"
+                    src="https://storage.googleapis.com/a1aa/image/JWLUbNQ67a5iGVqkun986iOQlikCBatx9kGA9MrfymdyP54JA.jpg"
                     width="50" />
                 <div class="blue">
                 </div>
@@ -204,11 +331,16 @@
                 TOMAR 01 COMPRIMIDO PELA MANHÃ
             </p>
             <div class="icons">
-                <img alt="Pill icon" height="50" src="C:\xampp\htdocs\receita\receita\ima\manha.jpeg" width="50" />
-                <img alt="Clock icon" height="50" src="C:\xampp\htdocs\receita\receita\ima\almoco.jpeg" width="50" />
-                <img alt="Pill bottle icon" height="50" src="C:\xampp\htdocs\receita\receita\ima\noite.png"
+                <img alt="Pill icon" height="50"
+                    src="https://storage.googleapis.com/a1aa/image/Hrxyy9f23DwHZSiYrDkcvKaZqGElYwLYjnue8PCic5IjfkjnA.jpg"
                     width="50" />
-                <div class="blue">
+                <img alt="Clock icon" height="50"
+                    src="https://storage.googleapis.com/a1aa/image/fb3fSVgSXTpEfoexY5RwVnfuGDew0IGByEz4FtuqJpcv4nc8E.jpg"
+                    width="50" />
+                <img alt="Pill bottle icon" height="50"
+                    src="https://storage.googleapis.com/a1aa/image/JWLUbNQ67a5iGVqkun986iOQlikCBatx9kGA9MrfymdyP54JA.jpg"
+                    width="50" />
+                <div class="yellow">
                 </div>
             </div>
         </div>
@@ -220,11 +352,16 @@
                 TOMAR 01 COMPRIMIDO NO CAFÉ DA MANHÃ, 1 COMPRIMIDO ALMOÇO E, 1 COMPRIMIDO NA JANTA.
             </p>
             <div class="icons">
-                <img alt="Pill icon" height="50" src="C:\xampp\htdocs\receita\receita\ima\manha.jpeg" width="50" />
-                <img alt="Clock icon" height="50" src="C:\xampp\htdocs\receita\receita\ima\almoco.jpeg" width="50" />
-                <img alt="Pill bottle icon" height="50" src="C:\xampp\htdocs\receita\receita\ima\noite.png"
+                <img alt="Pill icon" height="50"
+                    src="https://storage.googleapis.com/a1aa/image/Hrxyy9f23DwHZSiYrDkcvKaZqGElYwLYjnue8PCic5IjfkjnA.jpg"
                     width="50" />
-                <div class="blue">
+                <img alt="Clock icon" height="50"
+                    src="https://storage.googleapis.com/a1aa/image/fb3fSVgSXTpEfoexY5RwVnfuGDew0IGByEz4FtuqJpcv4nc8E.jpg"
+                    width="50" />
+                <img alt="Pill bottle icon" height="50"
+                    src="https://storage.googleapis.com/a1aa/image/JWLUbNQ67a5iGVqkun986iOQlikCBatx9kGA9MrfymdyP54JA.jpg"
+                    width="50" />
+                <div class="pink">
                 </div>
             </div>
         </div>
@@ -236,15 +373,24 @@
                 TOMAR 02 COMPRIMIDOS À NOITE.
             </p>
             <div class="icons">
-                <img alt="Pill icon" height="50" src="C:\xampp\htdocs\receita\receita\ima\manha.jpeg" width="50" />
-                <img alt="Clock icon" height="50" src="C:\xampp\htdocs\receita\receita\ima\almoco.jpeg" width="50" />
-                <img alt="Pill bottle icon" height="50" src="C:\xampp\htdocs\receita\receita\ima\noite.png"
+                <img alt="Pill icon" height="50"
+                    src="https://storage.googleapis.com/a1aa/image/Hrxyy9f23DwHZSiYrDkcvKaZqGElYwLYjnue8PCic5IjfkjnA.jpg"
                     width="50" />
-                <div class="blue">
+                <img alt="Clock icon" height="50"
+                    src="https://storage.googleapis.com/a1aa/image/fb3fSVgSXTpEfoexY5RwVnfuGDew0IGByEz4FtuqJpcv4nc8E.jpg"
+                    width="50" />
+                <img alt="Pill bottle icon" height="50"
+                    src="https://storage.googleapis.com/a1aa/image/JWLUbNQ67a5iGVqkun986iOQlikCBatx9kGA9MrfymdyP54JA.jpg"
+                    width="50" />
+                <div class="green">
                 </div>
             </div>
         </div>
-        
+        <div class="add-button">
+            <button onclick="addMenu()">
+                Adicionar Outro Menu
+            </button>
+        </div>
         <div class="print-button">
             <button onclick="printPage()">
                 Imprimir
