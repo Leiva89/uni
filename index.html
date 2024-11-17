@@ -1,0 +1,256 @@
+<html>
+
+<head>
+    <title>
+        UNI RECEITA
+    </title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            width: 60%;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #000;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .header img {
+            width: 50px;
+            height: auto;
+        }
+
+        .header h1 {
+            font-size: 20px;
+            margin: 0;
+        }
+
+        .patient {
+            margin-bottom: 20px;
+        }
+
+        .patient label {
+            font-weight: bold;
+        }
+
+        .patient input {
+            width: 100%;
+            padding: 5px;
+            margin-top: 5px;
+        }
+
+        .usage {
+            text-align: right;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .medication {
+            margin-bottom: 20px;
+        }
+
+        .medication h2 {
+            font-size: 16px;
+            color: blue;
+            margin: 0;
+        }
+
+        .medication p {
+            margin: 5px 0;
+        }
+
+        .medication img {
+            width: 50px;
+            height: auto;
+            display: inline-block;
+            margin-right: 10px;
+        }
+
+        .medication .icons {
+            display: flex;
+            align-items: center;
+        }
+
+        .medication .icons img {
+            margin-right: 10px;
+        }
+
+        .medication .icons div {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            display: inline-block;
+        }
+
+        .blue {
+            background-color: blue;
+        }
+
+        .yellow {
+            background-color: yellow;
+        }
+
+        .pink {
+            background-color: pink;
+        }
+
+        .green {
+            background-color: green;
+        }
+
+        .menu {
+            margin-bottom: 20px;
+        }
+
+        .menu a {
+            display: block;
+            padding: 10px;
+            background-color: #f0f0f0;
+            margin-bottom: 5px;
+            text-decoration: none;
+            color: #000;
+            border: 1px solid #ccc;
+        }
+
+        .menu a:hover {
+            background-color: #ddd;
+        }
+
+        .print-button {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .print-button button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+    <script>
+        function showSection(sectionId) {
+            var sections = document.querySelectorAll('.medication');
+            sections.forEach(function (section) {
+                section.style.display = 'none';
+            });
+            document.getElementById(sectionId).style.display = 'block';
+        }
+
+        function printPage() {
+            window.print();
+        }
+    </script>
+</head>
+
+
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>
+                RECEITUÁRIO MÉDICO
+            </h1>
+            <img alt="Medical icon" height="50" src="C:\xampp\htdocs\receita\receita\ima\logo.net.jpg" width="200" />
+        </div>
+        <div class="patient">
+            <label for="patient">
+                PACIENTE
+            </label>
+            <input id="patient" name="patient" type="text" />
+        </div>
+        <div class="usage">
+            USO INTERNO
+        </div>
+        <div class="menu">
+            <a href="javascript:void(0)" onclick="showSection('med1')">
+                ENALAPRIL 10MG
+            </a>
+            <a href="javascript:void(0)" onclick="showSection('med2')">
+                HIDROCLOROTIAZIDA 25MG
+            </a>
+            <a href="javascript:void(0)" onclick="showSection('med3')">
+                METFORMINA 850MG
+            </a>
+            <a href="javascript:void(0)" onclick="showSection('med4')">
+                SINVASTATINA 20MG
+            </a>
+        </div>
+        <div class="medication" id="med1" style="display:none;">
+            <h2>
+                1. ENALAPRIL 10MG--------------------------------------60 COMPRIMIDOS.
+            </h2>
+            <p>
+                TOMAR 01 COMPRIMIDO DE 12 EM 12 HORAS.
+            </p>
+            <div class="icons">
+                <img alt="Pill icon" height="50" src="C:\xampp\htdocs\receita\receita\ima\manha.jpeg" width="50" />
+                <img alt="Clock icon" height="50" src="C:\xampp\htdocs\receita\receita\ima\almoco.jpeg" width="50" />
+                <img alt="Pill bottle icon" height="50" src="C:\xampp\htdocs\receita\receita\ima\noite.png"
+                    width="50" />
+                <div class="blue">
+                </div>
+            </div>
+        </div>
+        <div class="medication" id="med2" style="display:none;">
+            <h2>
+                2. HIDROCLOROTIAZIDA 25MG----------------------------30 COMPRIMIDOS
+            </h2>
+            <p>
+                TOMAR 01 COMPRIMIDO PELA MANHÃ
+            </p>
+            <div class="icons">
+                <img alt="Pill icon" height="50" src="C:\xampp\htdocs\receita\receita\ima\manha.jpeg" width="50" />
+                <img alt="Clock icon" height="50" src="C:\xampp\htdocs\receita\receita\ima\almoco.jpeg" width="50" />
+                <img alt="Pill bottle icon" height="50" src="C:\xampp\htdocs\receita\receita\ima\noite.png"
+                    width="50" />
+                <div class="blue">
+                </div>
+            </div>
+        </div>
+        <div class="medication" id="med3" style="display:none;">
+            <h2>
+                3. METFORMINA 850MG------------------------------------90 COMPRIMIDOS
+            </h2>
+            <p>
+                TOMAR 01 COMPRIMIDO NO CAFÉ DA MANHÃ, 1 COMPRIMIDO ALMOÇO E, 1 COMPRIMIDO NA JANTA.
+            </p>
+            <div class="icons">
+                <img alt="Pill icon" height="50" src="C:\xampp\htdocs\receita\receita\ima\manha.jpeg" width="50" />
+                <img alt="Clock icon" height="50" src="C:\xampp\htdocs\receita\receita\ima\almoco.jpeg" width="50" />
+                <img alt="Pill bottle icon" height="50" src="C:\xampp\htdocs\receita\receita\ima\noite.png"
+                    width="50" />
+                <div class="blue">
+                </div>
+            </div>
+        </div>
+        <div class="medication" id="med4" style="display:none;">
+            <h2>
+                4. SINVASTATINA 20MG------------------------------------60 COMPRIMIDOS
+            </h2>
+            <p>
+                TOMAR 02 COMPRIMIDOS À NOITE.
+            </p>
+            <div class="icons">
+                <img alt="Pill icon" height="50" src="C:\xampp\htdocs\receita\receita\ima\manha.jpeg" width="50" />
+                <img alt="Clock icon" height="50" src="C:\xampp\htdocs\receita\receita\ima\almoco.jpeg" width="50" />
+                <img alt="Pill bottle icon" height="50" src="C:\xampp\htdocs\receita\receita\ima\noite.png"
+                    width="50" />
+                <div class="blue">
+                </div>
+            </div>
+        </div>
+        
+        <div class="print-button">
+            <button onclick="printPage()">
+                Imprimir
+            </button>
+        </div>
+    </div>
+</body>
+
+</html>
