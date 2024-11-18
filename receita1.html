@@ -1,167 +1,132 @@
 <html>
  <head>
-  <title>
-   Receituário Médico
-  </title>
+  <script src="https://cdn.tailwindcss.com">
+  </script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
   <style>
-   body {
-            font-family: Arial, sans-serif;
-        }
-        .container {
-            width: 60%;
-            margin: 0 auto;
-            padding: 20px;
-            border: 1px solid #000;
-        }
-        .header {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-        .header img {
-            width: 50px;
-            height: auto;
-        }
-        .header h1 {
-            font-size: 20px;
-            margin: 0;
-        }
-        .patient {
-            margin-bottom: 20px;
-        }
-        .patient label {
-            font-weight: bold;
-        }
-        .patient input {
-            width: 100%;
-            padding: 5px;
-            margin-top: 5px;
-        }
-        .usage {
-            text-align: right;
-            font-weight: bold;
-            margin-bottom: 20px;
-        }
-        .medication {
-            margin-bottom: 20px;
-        }
-        .medication h2 {
-            font-size: 16px;
-            color: blue;
-            margin: 0;
-        }
-        .medication p {
-            margin: 5px 0;
-        }
-        .medication img {
-            width: 50px;
-            height: auto;
-            display: inline-block;
-            margin-right: 10px;
-        }
-        .medication .icons {
-            display: flex;
-            align-items: center;
-        }
-        .medication .icons img {
-            margin-right: 10px;
-        }
-        .medication .icons div {
-            width: 20px;
-            height: 20px;
-            border-radius: 50%;
-            display: inline-block;
-        }
-        .blue {
-            background-color: blue;
-        }
-        .yellow {
-            background-color: yellow;
-        }
-        .pink {
-            background-color: pink;
-        }
-        .green {
-            background-color: green;
+   .hidden {
+            display: none;
         }
   </style>
  </head>
- <body>
-  <div class="container">
-   <div class="header">
-    <h1>
-     RECEITUÁRIO MÉDICO
+ <body class="bg-gray-100 p-6">
+  <div class="max-w-lg mx-auto bg-white p-6 rounded shadow-md mt-6">
+   <div class="flex items-center mb-4">
+    <img alt="Logo" class="mr-4" height="60" src="ima/logo.net.jpg" width="60"/>
+    <h1 class="text-2xl font-bold text-gray-700">
+        RECEITUÁRIO MÉDICO 
     </h1>
-    <img alt="Medical icon" height="50" src="https://storage.googleapis.com/a1aa/image/HP7Fhj2T9fxSBy80bBrs2VA93FkoA5qHDy2jf4KF7KolfkjnA.jpg" width="50"/>
    </div>
-   <div class="patient">
-    <label for="patient">
-     PACIENTE
-    </label>
-    <input id="patient" name="patient" type="text"/>
-   </div>
-   <div class="usage">
-    USO INTERNO
-   </div>
-   <div class="medication">
-    <h2>
-     1. ENALAPRIL 10MG--------------------------------------60 COMPRIMIDOS.
-    </h2>
-    <p>
-     TOMAR 01 COMPRIMIDO DE 12 EM 12 HORAS.
-    </p>
-    <div class="icons">
-     <img alt="Pill icon" height="50" src="https://storage.googleapis.com/a1aa/image/Hrxyy9f23DwHZSiYrDkcvKaZqGElYwLYjnue8PCic5IjfkjnA.jpg" width="50"/>
-     <img alt="Clock icon" height="50" src="https://storage.googleapis.com/a1aa/image/fb3fSVgSXTpEfoexY5RwVnfuGDew0IGByEz4FtuqJpcv4nc8E.jpg" width="50"/>
-     <img alt="Pill bottle icon" height="50" src="https://storage.googleapis.com/a1aa/image/JWLUbNQ67a5iGVqkun986iOQlikCBatx9kGA9MrfymdyP54JA.jpg" width="50"/>
-     <div class="blue">
+   <button class="bg-red-500 text-white px-4 py-2 rounded mb-4" id="addMenu">
+    Adicionar Remédio
+   </button>
+   <button class="bg-blue-500 text-white px-4 py-2 rounded mb-4" id="printPage">
+    Imprimir
+   </button>
+   <div id="additionalMenus">
+    <div class="max-w-lg mx-auto bg-white p-6 rounded shadow-md mt-6">
+     <div class="mb-6">
+      <label class="block text-gray-700 font-bold mb-2">
+       Selecionar Medicação
+      </label>
+      <select class="block w-full border border-gray-300 rounded py-2 px-3 text-gray-700 color:rgb(26, 12, 226)">
+       <option> <h2 style="color:rgb(26, 12, 226);text-align:center;"></h2>
+        selecione o Remedio
+       </option>
+       <option> <h2 style="color:rgb(252, 248, 3);text-align:center;"></h2>
+        selecione o Remedio
+       </option>
+       <option><h2 style="color:rgb(252, 0, 168);text-align:center;"></h2>
+        selecione o Remedio
+       </option><option><h2 style="color:rgb(0, 0, 0);text-align:center;"></h2>
+        selecione o Remedio
+       </option>
+      </select>
      </div>
-    </div>
-   </div>
-   <div class="medication">
-    <h2>
-     2. HIDROCLOROTIAZIDA 25MG----------------------------30 COMPRIMIDOS
-    </h2>
-    <p>
-     TOMAR 01 COMPRIMIDO PELA MANHÃ
-    </p>
-    <div class="icons">
-     <img alt="Pill icon" height="50" src="https://storage.googleapis.com/a1aa/image/Hrxyy9f23DwHZSiYrDkcvKaZqGElYwLYjnue8PCic5IjfkjnA.jpg" width="50"/>
-     <img alt="Clock icon" height="50" src="https://storage.googleapis.com/a1aa/image/fb3fSVgSXTpEfoexY5RwVnfuGDew0IGByEz4FtuqJpcv4nc8E.jpg" width="50"/>
-     <img alt="Pill bottle icon" height="50" src="https://storage.googleapis.com/a1aa/image/JWLUbNQ67a5iGVqkun986iOQlikCBatx9kGA9MrfymdyP54JA.jpg" width="50"/>
-     <div class="yellow">
+     <div class="mb-6">
+      <label class="block text-gray-700 font-bold mb-2">
+       Posologia:
+      </label>
+      <input class="block w-full border border-gray-300 rounded py-2 px-3 text-gray-700" type="text"/>
      </div>
-    </div>
-   </div>
-   <div class="medication">
-    <h2>
-     3. METFORMINA 850MG------------------------------------90 COMPRIMIDOS
-    </h2>
-    <p>
-     TOMAR 01 COMPRIMIDO NO CAFÉ DA MANHÃ, 1 COMPRIMIDO ALMOÇO E, 1 COMPRIMIDO NA JANTA.
-    </p>
-    <div class="icons">
-     <img alt="Pill icon" height="50" src="https://storage.googleapis.com/a1aa/image/Hrxyy9f23DwHZSiYrDkcvKaZqGElYwLYjnue8PCic5IjfkjnA.jpg" width="50"/>
-     <img alt="Clock icon" height="50" src="https://storage.googleapis.com/a1aa/image/fb3fSVgSXTpEfoexY5RwVnfuGDew0IGByEz4FtuqJpcv4nc8E.jpg" width="50"/>
-     <img alt="Pill bottle icon" height="50" src="https://storage.googleapis.com/a1aa/image/JWLUbNQ67a5iGVqkun986iOQlikCBatx9kGA9MrfymdyP54JA.jpg" width="50"/>
-     <div class="pink">
+     <div class="mb-6">
+      <label class="block text-gray-700 font-bold mb-2">
+       Horarios para Tomar Remedios
+      </label>
+      <div class="flex items-center mb-2">
+       <input class="mr-2" type="checkbox"/>
+       <label class="text-gray-700">
+        Pela Manhã
+        <i class="fas fa-sun">
+        </i>
+       </label>
+      </div>
+      <div class="flex items-center mb-2">
+       <input class="mr-2" type="checkbox"/>
+       <label class="text-gray-700">
+        Almoço
+        <i class="fas fa-clock">
+        </i>
+       </label>
+      </div>
+      <div class="flex items-center mb-2">
+       <input class="mr-2" type="checkbox"/>
+       <label class="text-gray-700">
+        Noite
+        <i class="fas fa-moon">
+        </i>
+       </label>
+      </div>
      </div>
-    </div>
-   </div>
-   <div class="medication">
-    <h2>
-     4. SINVASTATINA 20MG------------------------------------60 COMPRIMIDOS
-    </h2>
-    <p>
-     TOMAR 02 COMPRIMIDOS À NOITE.
-    </p>
-    <div class="icons">
-     <img alt="Pill icon" height="50" src="https://storage.googleapis.com/a1aa/image/Hrxyy9f23DwHZSiYrDkcvKaZqGElYwLYjnue8PCic5IjfkjnA.jpg" width="50"/>
-     <img alt="Clock icon" height="50" src="https://storage.googleapis.com/a1aa/image/fb3fSVgSXTpEfoexY5RwVnfuGDew0IGByEz4FtuqJpcv4nc8E.jpg" width="50"/>
-     <img alt="Pill bottle icon" height="50" src="https://storage.googleapis.com/a1aa/image/JWLUbNQ67a5iGVqkun986iOQlikCBatx9kGA9MrfymdyP54JA.jpg" width="50"/>
-     <div class="green">
-     </div>
+     <button class="deleteMenu bg-red-500 text-white px-4 py-2 rounded">
+      Delete Menu
+     </button>
     </div>
    </div>
   </div>
+  <script>
+   document.getElementById('addMenu').addEventListener('click', function() {
+            var additionalMenus = document.getElementById('additionalMenus');
+            var newMenu = document.createElement('div');
+            newMenu.classList.add('max-w-lg', 'mx-auto', 'bg-white', 'p-6', 'rounded', 'shadow-md', 'mt-6');
+            newMenu.innerHTML = `
+                <div class="mb-6">
+                    <label class="block text-gray-700 font-bold mb-2">Select Example</label>
+                    <select class="block w-full border border-gray-300 rounded py-2 px-3 text-gray-700">
+                        <option>selecione o Remedio</option>
+                    </select>
+                </div>
+                <div class="mb-6">
+                    <label class="block text-gray-700 font-bold mb-2">Posologia:</label>
+                    <input type="text" class="block w-full border border-gray-300 rounded py-2 px-3 text-gray-700">
+                </div>
+                <div class="mb-6">
+                    <label class="block text-gray-700 font-bold mb-2">Horarios para Tomar Remedios</label>
+                    <div class="flex items-center mb-2">
+                        <input type="checkbox" class="mr-2">
+                        <label class="text-gray-700">Pela Manhã <i class="fas fa-sun"></i></label>
+                    </div>
+                    <div class="flex items-center mb-2">
+                        <input type="checkbox" class="mr-2">
+                        <label class="text-gray-700">Almoço <i class="fas fa-clock"></i></label>
+                    </div>
+                    <div class="flex items-center mb-2">
+                        <input type="checkbox" class="mr-2">
+                        <label class="text-gray-700">Noite <i class="fas fa-moon"></i></label>
+                    </div>
+                </div>
+                <button class="deleteMenu bg-red-500 text-white px-4 py-2 rounded">Delete Menu</button>
+            `;
+            additionalMenus.appendChild(newMenu);
+
+            newMenu.querySelector('.deleteMenu').addEventListener('click', function() {
+                additionalMenus.removeChild(newMenu);
+            });
+        });
+
+        document.getElementById('printPage').addEventListener('click', function() {
+            window.print();
+        });
+  </script>
  </body>
 </html>
