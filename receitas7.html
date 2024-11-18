@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=7, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="receitas.css">
+    <script src="receitas.js" type="module"></script>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="content">
+            <div class="header">
+                <h3>RECEITUÁRIO MÉDICO</h3>
+                <img src="ima/logo.net.jpg" height="50" alt="logo">
+            </div>
+            <div class="search-content">
+                <div class="search">
+                    <label for="patient">PACIENTE: </label>
+                    <input type="text" name="patient" placeholder="Paciente">
+                    <button>Pesquisar</button>
+                </div>
+            </div>
+
+            <div class="medication-container">
+                <select name="medication" id="medication">
+                </select>
+
+                <button class="delete-menu">Excluir menu</button>
+            </div>
+
+            <ul id="medicine-list" class="medicine-list"></ul>
+
+            <div class="footer">
+                <button class="add-medicine">Adicionar medicamento</button>
+                <button class="print">Imprimir</button>
+            </div>
+
+
+
+        </div>
+    </div>
+
+</body>
+
+</html>
