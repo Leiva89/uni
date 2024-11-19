@@ -47,6 +47,8 @@
             color: red;
             border: 2px solid red;
             transition: background-color 0.3s, color 0.3s;
+
+
         }
 
         .btn-transparent:hover {
@@ -57,23 +59,25 @@
 </head>
 
 <body class="bg-gray-100 p-6">
-    <div class="max-w-lg mx-auto bg-white p-6 rounded shadow-md mt-6">
+    <div class="max-w-2xl mx-auto bg-white p-6 rounded shadow-md mt-6">
         <div class="flex items-center justify-center mb-4">
             <img src="ima/logo.net.jpg" alt="Logo" class="mr-4" width="70" height="70">
         </div>
         <h1 class="text-2xl font-bold text-gray-700 text-center mb-4">RECEITUÁRIO MÉDICO</h1>
-        <button id="addMenu" class="btn-transparent px-4 py-2 rounded">Adicionar Remédio</button>
-
+        <div class="flex justify-between mb-4">
+            <button id="addMenu" class="btn-transparent px-3 py-2 rounded">Adicionar o remédio</button>
+            <button id="printPage" class="bg-blue-500 text-white px-5 py-2 rounded">Imprimir</button>
+        </div>
         <div id="additionalMenus">
             <div class="max-w-lg mx-auto bg-white p-6 rounded shadow-md mt-6">
                 <div class="mb-6">
                     <label class="block text-gray-700 font-bold mb-2">Remédios</label>
                     <select class="block w-full border border-gray-300 rounded py-2 px-3 text-gray-700">
                         <option class=>Selecione o Remedio</option>
-                        <option class="option-blue">1. ENALAPRIL 10MG </option>
-                        <option class="option-yellow">2. HIDROCLOROTIAZIDA 25MG</option>
-                        <option class="option-pink">3. METFORMINA 850MG</option>
-                        <option class="option-green">4. SINVASTATINA 20MG</option>
+                        <option class="option-blue">ENALAPRIL 10MG </option>
+                        <option class="option-yellow">HIDROCLOROTIAZIDA 25MG</option>
+                        <option class="option-pink">METFORMINA 850MG</option>
+                        <option class="option-green">SINVASTATINA 20MG</option>
                     </select>
                 </div>
                 <div class="mb-6">
@@ -120,9 +124,9 @@
                     </div>
 
                     <br>
-                    <br>
+
                     <div class="flex justify-center">
-                        <button class="deleteMenu bg-red-500 text-white px-10 py-1 rounded">Delete Menu</button>
+                        <button class="deleteMenu bg-red-500 text-white px-3 py-1 rounded">Delete Menu</button>
                     </div>
 
                     <script>
@@ -135,10 +139,10 @@
                     <label class="block text-gray-700 font-bold mb-2">Remédios</label>
                     <select class="block w-full border border-gray-300 rounded py-2 px-3 text-gray-700">
                         <option class=>selecione o Remedio</option>
-                        <option class="option-blue">1. ENALAPRIL 10MG</option>
-                        <option class="option-yellow">2. HIDROCLOROTIAZIDA 25MG</option>
-                        <option class="option-pink">3. METFORMINA 850MG</option>
-                        <option class="option-green">4. SINVASTATINA 20MG</option>
+                        <option class="option-blue">ENALAPRIL 10MG</option>
+                        <option class="option-yellow"> HIDROCLOROTIAZIDA 25MG</option>
+                        <option class="option-pink">METFORMINA 850MG</option>
+                        <option class="option-green">SINVASTATINA 20MG</option>
                     </select>
                 </div>
                 <div class="flex space-x-4">
@@ -155,8 +159,8 @@
                     <label class="block text-gray-700 font-bold mb-2">Posologia:</label>
                     <input type="text" class="block w-full border border-gray-300 rounded py-2 px-3 text-gray-700">
                 </div>
-                <<div class="mb-6">
-                        <label class="block text-gray-700 font-bold mb-2">Horarios para Tomar Remedios</label>
+                <div class="mb-6">
+                        <label class="block text-gray-700 font-bold mb-2"</label>
                         <div class="flex flex-col space-y-2">
                             <div class="flex items-center justify-between">
                                 <div class="flex flex-col items-center">
@@ -181,10 +185,10 @@
                         </div>
                     </div>
                 <br>
-                <br>
+                
                             <div class="flex justify-center">
-                    <button class="deleteMenu bg-red-500 text-white px-10 py-1 rounded">Delete Menu</button>
-                </div>
+                    <button class="deleteMenu bg-red-500 text-white px-5 py-1 rounded">Delete Menu</button>
+                            </div>
                 
         
             `;
