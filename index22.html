@@ -2,7 +2,7 @@
 
 <head>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"link>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" link>
 
 
     <style>
@@ -25,110 +25,180 @@
         .option-green {
             color: rgb(43, 255, 0);
         }
+
+        .green {
+            background-color: rgb(5, 197, 5);
+        }
+
+        .btn-transparent {
+            background-color: transparent;
+            color: red;
+            border: 2px solid red;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .btn-transparent:hover {
+            background-color: red;
+            color: white;
+        }
+
+        btn-transparent {
+            background-color: transparent;
+            color: red;
+            border: 2px solid red;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .btn-transparent:hover {
+            background-color: red;
+            color: white;
+        }
     </style>
 </head>
 
 <body class="bg-gray-100 p-6">
     <div class="max-w-lg mx-auto bg-white p-6 rounded shadow-md mt-6">
-        <div class="flex items-center mb-4">
+        <div class="flex items-center justify-center mb-4">
             <img src="ima/logo.net.jpg" alt="Logo" class="mr-4" width="70" height="70">
-            <h1>RECEITUÁRIO MÉDICO</h1>
         </div>
-        <button id="addMenu" class="bg-red-500 text-white px-4 py-2 rounded mb-4">Adicionar Remédio</button>
-        <button id="printPage" class="bg-blue-500 text-white px-4 py-2 rounded mb-4">Imprimir</button>
+        <h1 class="text-2xl font-bold text-gray-700 text-center mb-4">RECEITUÁRIO MÉDICO</h1>
+        <button id="addMenu" class="btn-transparent px-4 py-2 rounded">Adicionar Remédio</button>
+
         <div id="additionalMenus">
             <div class="max-w-lg mx-auto bg-white p-6 rounded shadow-md mt-6">
                 <div class="mb-6">
-                    <label class="block text-gray-700 font-bold mb-2">Select Example</label>
+                    <label class="block text-gray-700 font-bold mb-2">Remédios</label>
                     <select class="block w-full border border-gray-300 rounded py-2 px-3 text-gray-700">
-                        <option class=>selecione o Remedio</option>
-                        <option class="option-blue">1. ENALAPRIL 10MG-------------60 COMPRIMIDOS </option>
-                        <option class="option-yellow">2. HIDROCLOROTIAZIDA 25MG-------------30 COMPRIMIDOS</option>
-                        <option class="option-pink">3. METFORMINA 850MG-------------90 COMPRIMIDOS</option>
-                        <option class="option-green">4. SINVASTATINA 20MG-------------60 COMPRIMIDOS</option>
+                        <option class=>Selecione o Remedio</option>
+                        <option class="option-blue">1. ENALAPRIL 10MG </option>
+                        <option class="option-yellow">2. HIDROCLOROTIAZIDA 25MG</option>
+                        <option class="option-pink">3. METFORMINA 850MG</option>
+                        <option class="option-green">4. SINVASTATINA 20MG</option>
                     </select>
                 </div>
                 <div class="mb-6">
-                    <label class="block text-gray-700 font-bold mb-2">Posologia:</label>
-                    <input type="text" class="block w-full border border-gray-300 rounded py-2 px-3 text-gray-700">
-                </div>
-                <div class="mb-6">
-                    <label class="block text-gray-700 font-bold mb-2">Horarios para Tomar Remedios</label>
-                    <div class="flex items-center mb-2 space-x-4">
-                        <div class="flex items-center">
-                            <input type="checkbox" class="mr-2">
-                            <label class="text-gray-700">Pela Manhã <img src="ima/manha.jpeg" alt="Sun icon" width="70"
-                                    height="20"></label>
-                        </div>
-                        <div class="flex items-center">
-                            <input type="checkbox" class="mr-2">
-                            <label class="text-gray-700">Almoço <img src="ima/almoco.jpeg" alt="fas fa-clock" width="70"
-                                    height="20"></label>
-                        </div>
-                        <div class="flex items-center">
-                            <input type="checkbox" class="mr-2">
-                            <label class="text-gray-700">Pela noite <img src="ima/noite.png" alt="fas fa-moon"
-                                    width="70" height="20"></label>
-                        </div>
+                    <label class="block text-gray-700 font-bold mb-2"></label>
+                    <div class="flex space-x-4">
+                        <input type="text" class="block w-full border border-gray-300 rounded py-2 px-3 text-gray-700">
+                        <select class="block w-full border border-gray-300 rounded py-2 px-3 text-gray-700">
+                            <option value="option1">Selecione</option>
+                            <option value="option1">Comprimido</option>
+                            <option value="option2">Cápsula</option>
+                            <option value="option3">Unidade</option>
+                            <option value="option4">Frasco</option>
+                        </select>
                     </div>
-                </div>
-                <button class="deleteMenu bg-red-500 text-white px-4 py-2 rounded">Delete Menu</button>
-            </div>
-        </div>
-    </div>
+                    <div class="mb-6">
+                        <label class="block text-gray-700 font-bold mb-2">Posologia:</label>
+                        <input type="text" class="block w-full border border-gray-300 rounded py-2 px-3 text-gray-700">
+                    </div>
 
-    <script>
-        document.getElementById('addMenu').addEventListener('click', function () {
-            var additionalMenus = document.getElementById('additionalMenus');
-            var newMenu = document.createElement('div');
-            newMenu.classList.add('max-w-lg', 'mx-auto', 'bg-white', 'p-6', 'rounded', 'shadow-md', 'mt-6');
-            newMenu.innerHTML = `
+                    <div class="mb-6">
+                        <label class="block text-gray-700 font-bold mb-2">Horarios para Tomar Remedios</label>
+                        <div class="flex flex-col space-y-2">
+                            <div class="flex items-center justify-between">
+                                <div class="flex flex-col items-center">
+                                    <label class="text-gray-700 flex items-center">Manhã <img src="ima/manha.jpeg"
+                                            alt="Sun icon" width="40" height="20" class="ml-2"></label>
+                                    <input type="checkbox" class="mt-2">
+                                    <input type="checkbox" class="mt-2">
+                                </div>
+                                <div class="flex flex-col items-center">
+                                    <label class="text-gray-700 flex items-center">Almoço <img src="ima/almoco.jpeg"
+                                            alt="Sun icon" width="40" height="20" class="ml-2"></label>
+                                    <input type="checkbox" class="mt-2">
+                                    <input type="checkbox" class="mt-2">
+                                </div>
+                                <div class="flex flex-col items-center">
+                                    <label class="text-gray-700 flex items-center">Noite <img src="ima/noite.png"
+                                            alt="Sun icon" width="40" height="20" class="ml-2"></label>
+                                    <input type="checkbox" class="mt-2">
+                                    <input type="checkbox" class="mt-2">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <br>
+                    <br>
+                    <div class="flex justify-center">
+                        <button class="deleteMenu bg-red-500 text-white px-10 py-1 rounded">Delete Menu</button>
+                    </div>
+
+                    <script>
+                        document.getElementById('addMenu').addEventListener('click', function () {
+                            var additionalMenus = document.getElementById('additionalMenus');
+                            var newMenu = document.createElement('div');
+                            newMenu.classList.add('max-w-lg', 'mx-auto', 'bg-white', 'p-6', 'rounded', 'shadow-md', 'mt-6');
+                            newMenu.innerHTML = `
                 <div class="mb-6">
-                    <label class="block text-gray-700 font-bold mb-2">Select Example</label>
+                    <label class="block text-gray-700 font-bold mb-2">Remédios</label>
                     <select class="block w-full border border-gray-300 rounded py-2 px-3 text-gray-700">
                         <option class=>selecione o Remedio</option>
-                        <option class="option-blue">1. ENALAPRIL 10MG-------------60 COMPRIMIDOS </option>
-                        <option class="option-yellow">2. HIDROCLOROTIAZIDA 25MG-------------30 COMPRIMIDOS</option>
-                        <option class="option-pink">3. METFORMINA 850MG-------------90 COMPRIMIDOS</option>
-                        <option class="option-green">4. SINVASTATINA 20MG-------------60 COMPRIMIDOS</option>
+                        <option class="option-blue">1. ENALAPRIL 10MG</option>
+                        <option class="option-yellow">2. HIDROCLOROTIAZIDA 25MG</option>
+                        <option class="option-pink">3. METFORMINA 850MG</option>
+                        <option class="option-green">4. SINVASTATINA 20MG</option>
                     </select>
                 </div>
+                <div class="flex space-x-4">
+                        <input type="text" class="block w-full border border-gray-300 rounded py-2 px-3 text-gray-700">
+                        <select class="block w-full border border-gray-300 rounded py-2 px-3 text-gray-700">
+                            <option value="option1">Selecione</option>
+                            <option value="option1">Comprimido</option>
+                            <option value="option2">Cápsula</option>
+                            <option value="option3">Unidade</option>
+                            <option value="option4">Frasco</option>
+                        </select>
+                    </div>
                 <div class="mb-6">
                     <label class="block text-gray-700 font-bold mb-2">Posologia:</label>
                     <input type="text" class="block w-full border border-gray-300 rounded py-2 px-3 text-gray-700">
                 </div>
-                <div class="mb-6">
-                    <label class="block text-gray-700 font-bold mb-2">Horarios para Tomar Remedios</label>
-                    <div class="flex items-center mb-2 space-x-4">
-                        <div class="flex items-center">
-                            <input type="checkbox" class="mr-2">
-                           <label class="text-gray-700">Pela Manhã <img src="ima/manha.jpeg" alt="Sun icon" width="70"
-                                    height="20"></label>
+                <<div class="mb-6">
+                        <label class="block text-gray-700 font-bold mb-2">Horarios para Tomar Remedios</label>
+                        <div class="flex flex-col space-y-2">
+                            <div class="flex items-center justify-between">
+                                <div class="flex flex-col items-center">
+                                    <label class="text-gray-700 flex items-center">Manhã <img src="ima/manha.jpeg"
+                                            alt="Sun icon" width="40" height="20" class="ml-2"></label>
+                                    <input type="checkbox" class="mt-2">
+                                    <input type="checkbox" class="mt-2">
+                                </div>
+                                <div class="flex flex-col items-center">
+                                    <label class="text-gray-700 flex items-center">Almoço <img src="ima/almoco.jpeg"
+                                            alt="Sun icon" width="40" height="20" class="ml-2"></label>
+                                    <input type="checkbox" class="mt-2">
+                                    <input type="checkbox" class="mt-2">
+                                </div>
+                                <div class="flex flex-col items-center">
+                                    <label class="text-gray-700 flex items-center">Noite <img src="ima/noite.png"
+                                            alt="Sun icon" width="40" height="20" class="ml-2"></label>
+                                    <input type="checkbox" class="mt-2">
+                                    <input type="checkbox" class="mt-2">
+                                </div>
+                            </div>
                         </div>
-                        <div class="flex items-center">
-                            <input type="checkbox" class="mr-2">
-                            <label class="text-gray-700">Almoço <img src="ima/almoco.jpeg" alt="fas fa-clock" width="70"
-                                height="20"></label>
-                        </div>
-                        <div class="flex items-center">
-                            <input type="checkbox" class="mr-2">
-                            <label class="text-gray-700">Pela noite <img src="ima/noite.png" alt="fas fa-moon" width="70"
-                                height="20"></label>
                     </div>
+                <br>
+                <br>
+                            <div class="flex justify-center">
+                    <button class="deleteMenu bg-red-500 text-white px-10 py-1 rounded">Delete Menu</button>
                 </div>
-                <button class="deleteMenu bg-red-500 text-white px-4 py-2 rounded">Delete Menu</button>
+                
+        
             `;
-            additionalMenus.appendChild(newMenu);
+                            additionalMenus.appendChild(newMenu);
 
-            newMenu.querySelector('.deleteMenu').addEventListener('click', function () {
-                additionalMenus.removeChild(newMenu);
-            });
-        });
+                            newMenu.querySelector('.deleteMenu').addEventListener('click', function () {
+                                additionalMenus.removeChild(newMenu);
+                            });
+                        });
 
-        document.getElementById('printPage').addEventListener('click', function () {
-            window.print();
-        });
-    </script>
+                        document.getElementById('printPage').addEventListener('click', function () {
+                            window.print();
+                        });
+                    </script>
 </body>
 
 </html>
