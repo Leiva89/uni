@@ -25,6 +25,53 @@
         .option-green {
             color: rgb(43, 255, 0);
         }
+        .option-1 {
+            color: rgb(175, 0, 0);
+        }
+        .option-2 {
+            color: rgb(21, 124, 3);
+        }
+        .option-3 {
+            color: rgb(42, 66, 102);
+        }
+
+        .option-4 {
+            color: rgb(146, 99, 132);
+        }
+        .option-5 {
+            color: rgb(9, 136, 115);
+        }
+        .option-6 {
+            color: rgb(99, 75, 207);
+        }
+        .option-7 {
+            color: rgb(136, 54, 54);
+        }
+        .option-8{
+            color: rgb(29, 139, 143);
+        }
+        .option-9 {
+            color: rgb(220, 223, 53);
+        }
+        .option-10 {
+            color: rgb(102, 32, 93);
+        }
+        .option-11 {
+            color: rgb(192, 48, 60);
+        }
+        .option-12 {
+            color: rgb(44, 151, 137);
+        }
+        .option-13 {
+            color: rgb(84, 21, 126);
+        }
+        .option-14 {
+            color: rgb(252, 111, 17);
+        }
+        .option-15 {
+            color: rgb(235, 36, 241);
+        }
+
 
         .green {
             background-color: rgb(5, 197, 5);
@@ -32,25 +79,37 @@
 
         .btn-transparent {
             background-color: transparent;
-            color: red;
-            border: 2px solid red;
+            color: blue;
+            border: 1px solid blue;
             transition: background-color 0.3s, color 0.3s;
         }
 
         .btn-transparent:hover {
-            background-color: red;
+            background-color: blue;
+            color: white;
+        }
+
+        .btn-print {
+            background-color: transparent;
+            color: blue;
+            border: 1px solid blue;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .btn-print:hover {
+            background-color: blue;
             color: white;
         }
 
         btn-transparent {
             background-color: transparent;
-            color: red;
-            border: 2px solid red;
+            color: blue;
+            border: 1px solid blue;
             transition: background-color 0.3s, color 0.3s;
         }
 
         .btn-transparent:hover {
-            background-color: red;
+            background-color: blue;
             color: white;
         }
     </style>
@@ -64,14 +123,14 @@
         <h1 class="text-2xl font-bold text-gray-700 text-center mb-4">RECEITUÁRIO MÉDICO</h1>
         <div class="flex justify-between mb-4">
             <button id="addMenu" class="btn-transparent px-3 py-2 rounded">Adicionar o remédio</button>
-            <button id="printPage" class="bg-blue-500 text-white px-5 py-2 rounded">Imprimir</button>
+            <button id="printPage" class="btn-print px-5 py-2 rounded">Imprimir</button>
         </div>
         <div class="mb-6">
             <label class="block text-gray-500 font-bold mb-2">Nome do Paciente:</label>
             <input type="text" class="block w-full border border-gray-300 rounded py-2 px-3 text-gray-700">
         </div>
         <div id="additionalMenus">
-                        <div class="max-w-lg mx-auto bg-white p-6 rounded shadow-md mt-6">
+                <div class="max-w-lg mx-auto bg-white p-6 rounded shadow-md mt-6">
                 <div class="mb-6">
                     <label class="block text-gray-700 font-bold mb-2">Remédios</label>
                     <select class="block w-full border border-gray-300 rounded py-2 px-3 text-gray-700">
@@ -80,7 +139,21 @@
                         <option class="option-yellow">HIDROCLOROTIAZIDA 25MG</option>
                         <option class="option-pink">METFORMINA 850MG</option>
                         <option class="option-green">SINVASTATINA 20MG</option>
-                    </select>
+                        <option class="option-1">CLORIDRATO DE METFORMINA 500MG</option>
+                        <option class="option-2">CLORIDRATO DE METFORMINA 500MG (ação prolongada)</option>                        
+                        <option class="option-4">INSULINA HUMANA REGULAR 100UI/ML</option>
+                        <option class="option-5">INSULINA HUMANA 100UI/ML</option>
+                        <option class="option-6">ATENOLOL 25MG</option>
+                        <option class="option-7">BESILATO DE ANLODIPINO 5MG</option>
+                        <option class="option-8">CAPTOPRIL 25MG</option>
+                        <option class="option-9">CLORIDRATO DE PROPRANOLOL 40MG</option>
+                        <option class="option-11">LOSARTANA POTASSICA 50MG</option>                        
+                        <option class="option-13">ESPIRONOLACTONA 25MG</option>
+                        <option class="option-14">FUROSEMIDA 40MG</option>
+                        <option class="option-15">SUCCINATO DE METOPROLOL 25MG</option> 
+                    </select>                   
+                        
+                        
                 </div>
                 <div class="mb-6">
                     <label class="block text-gray-700 font-bold mb-2"></label>
@@ -128,7 +201,7 @@
                     <br>
 
                     <div class="flex justify-center">
-                        <button class="deleteMenu bg-red-500 text-white px-3 py-1 rounded">Delete Menu</button>
+                        <button class="deleteMenu bg-blue-500 text-white px-3 py-1 rounded">Delete Menu</button>
                     </div>
 
                     <script>
@@ -150,11 +223,23 @@
                 <div class="flex space-x-4">
                         <input type="text" class="block w-full border border-gray-300 rounded py-2 px-3 text-gray-700">
                         <select class="block w-full border border-gray-300 rounded py-2 px-3 text-gray-700">
-                            <option value="option1">Selecione</option>
-                            <option value="option1">Comprimido</option>
-                            <option value="option2">Cápsula</option>
-                            <option value="option3">Unidade</option>
-                            <option value="option4">Frasco</option>
+                            <option class=>Selecione o Remedio</option>
+                        <option class="option-blue">ENALAPRIL 10MG </option>
+                        <option class="option-yellow">HIDROCLOROTIAZIDA 25MG</option>
+                        <option class="option-pink">METFORMINA 850MG</option>
+                        <option class="option-green">SINVASTATINA 20MG</option>
+                        <option class="option-1">CLORIDRATO DE METFORMINA 500MG</option>
+                        <option class="option-2">CLORIDRATO DE METFORMINA 500MG (ação prolongada)</option>                        
+                        <option class="option-4">INSULINA HUMANA REGULAR 100UI/ML</option>
+                        <option class="option-5">INSULINA HUMANA 100UI/ML</option>
+                        <option class="option-6">ATENOLOL 25MG</option>
+                        <option class="option-7">BESILATO DE ANLODIPINO 5MG</option>
+                        <option class="option-8">CAPTOPRIL 25MG</option>
+                        <option class="option-9">CLORIDRATO DE PROPRANOLOL 40MG</option>
+                        <option class="option-11">LOSARTANA POTASSICA 50MG</option>                        
+                        <option class="option-13">ESPIRONOLACTONA 25MG</option>
+                        <option class="option-14">FUROSEMIDA 40MG</option>
+                        <option class="option-15">SUCCINATO DE METOPROLOL 25MG</option> 
                         </select>
                     </div>
                 <div class="mb-6">
@@ -189,7 +274,7 @@
                 <br>
                 
                             <div class="flex justify-center">
-                    <button class="deleteMenu bg-red-500 text-white px-5 py-1 rounded">Delete Menu</button>
+                    <button class="deleteMenu bg-blue-500 text-white px-5 py-1 rounded">Delete Menu</button>
                             </div>
                 
         

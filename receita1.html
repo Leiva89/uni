@@ -15,113 +15,211 @@
         .option-blue {
             color: blue;
         }
+        .option-yellow {
+            color: yellow;
+        }
+        .btn-transparent {
+            background-color: transparent;
+            color: red;
+            border: 2px solid red;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .btn-transparent:hover {
+            background-color: red;
+            color: white;
+        }
+        .red-bg {
+            background-color: red;
+            color: white;
+        }
+        .green-bg {
+            background-color: green;
+            color: white;
+        }
+        .blue-bg {
+            background-color: blue;
+            color: white;
+        }
+        .yellow-bg {
+            background-color: yellow;
+            color: black;
+        }
     </style>
 </head>
 <body class="bg-gray-100 p-6">
-    <div class="max-w-lg mx-auto bg-white p-6 rounded shadow-md mt-6">
-        <div class="flex items-center mb-4">
-            <img src="https://storage.googleapis.com/a1aa/image/PutLoz1ofU3ZKKrSVB2kQRa2umLPSa12O307qsAaTRhV3F5JA.jpg" alt="Logo" class="mr-4" width="50" height="50">
-            <h1 class="text-2xl font-bold text-gray-700">Menu Management</h1>
+    <div class="max-w-4xl mx-auto bg-white p-12 rounded shadow-md mt-6">
+        <div class="flex items-center justify-center mb-4">
+            <img src="https://storage.googleapis.com/a1aa/image/PutLoz1ofU3ZKKrSVB2kQRa2umLPSa12O307qsAaTRhV3F5JA.jpg" alt="Logo" class="mr-4" width="150" height="150">
         </div>
-        <button id="addMenu" class="bg-red-500 text-white px-4 py-2 rounded mb-4">Add Another Menu</button>
-        <button id="printPage" class="bg-blue-500 text-white px-4 py-2 rounded mb-4">Print Page</button>
+        <h1 class="text-4xl font-bold text-gray-700 text-center mb-4">Menu Management</h1>
+        <div class="flex justify-between mb-4">
+            <button id="addMenu" class="btn-transparent px-4 py-2 rounded">Add Another Menu</button>
+            <button id="printPage" class="bg-blue-500 text-white px-4 py-2 rounded">Print Page</button>
+        </div>
         <div id="additionalMenus">
-            <div class="max-w-lg mx-auto bg-white p-6 rounded shadow-md mt-6">
+            <div class="max-w-4xl mx-auto bg-white p-12 rounded shadow-md mt-6">
                 <div class="mb-6">
                     <label class="block text-gray-700 font-bold mb-2">Select Example</label>
                     <select class="block w-full border border-gray-300 rounded py-2 px-3 text-gray-700" onchange="showSubMenu(this)">
-                        <option class="option-red">selecione o Remedio</option>
-                        <option class="option-green">Remedio 1</option>
-                        <option class="option-blue">Remedio 2</option>
+                        <option class="option-red red-bg" value="red">selecione o Remedio</option>
+                        <option class="option-green green-bg" value="green">Remedio 1</option>
+                        <option class="option-blue blue-bg" value="blue">Remedio 2</option>
+                        <option class="option-yellow yellow-bg" value="yellow">Remedio 3</option>
                     </select>
                 </div>
                 <div id="subMenu" class="hidden mb-6">
                     <label class="block text-gray-700 font-bold mb-2">Sub Menu</label>
-                    <select class="block w-full border border-gray-300 rounded py-2 px-3 text-gray-700">
-                        <option>Sub Option 1</option>
-                        <option>Sub Option 2</option>
-                        <option>Sub Option 3</option>
+                    <select class="block w-full border border-gray-300 rounded py-2 px-3 text-gray-700" onchange="changeMenuColor(this)">
+                        <option value="red">Sub Option 1</option>
+                        <option value="green">Sub Option 2</option>
+                        <option value="blue">Sub Option 3</option>
                     </select>
                 </div>
                 <div class="mb-6">
                     <label class="block text-gray-700 font-bold mb-2">Posologia:</label>
-                    <input type="text" class="block w-full border border-gray-300 rounded py-2 px-3 text-gray-700">
+                    <div class="flex space-x-4">
+                        <input type="text" class="block w-full border border-gray-300 rounded py-2 px-3 text-gray-700">
+                        <select class="block w-full border border-gray-300 rounded py-2 px-3 text-gray-700">
+                            <option value="option1">Option 1</option>
+                            <option value="option2">Option 2</option>
+                            <option value="option3">Option 3</option>
+                        </select>
+                    </div>
                 </div>
                 <div class="mb-6">
                     <label class="block text-gray-700 font-bold mb-2">Horarios para Tomar Remedios</label>
                     <div class="flex flex-col space-y-2">
-                        <div class="flex items-center">
-                            <input type="checkbox" class="mr-2">
-                            <label class="text-gray-700">Pela Manhã <img src="https://storage.googleapis.com/a1aa/image/u5wnLjCtNsaQDJWkZmzSudLS3ebL2h5nczsHiD4LGmvw9F5JA.jpg" alt="Sun icon" width="20" height="20"></label>
-                        </div>
-                        <div class="flex items-center">
-                            <input type="checkbox" class="mr-2">
-                            <label class="text-gray-700">Almoço <i class="fas fa-clock"></i></label>
-                        </div>
-                        <div class="flex items-center">
-                            <input type="checkbox" class="mr-2">
-                            <label class="text-gray-700">Noite <i class="fas fa-moon"></i></label>
+                        <div class="flex items-center justify-between">
+                            <div class="flex flex-col items-center">
+                                <label class="text-gray-700 flex items-center">Pela Manhã <img src="https://storage.googleapis.com/a1aa/image/u5wnLjCtNsaQDJWkZmzSudLS3ebL2h5nczsHiD4LGmvw9F5JA.jpg" alt="Sun icon" width="20" height="20" class="ml-2"></label>
+                                <input type="checkbox" class="mt-2">
+                            </div>
+                            <div class="flex flex-col items-center">
+                                <label class="text-gray-700 flex items-center">Almoço <i class="fas fa-clock ml-2"></i></label>
+                                <input type="checkbox" class="mt-2">
+                            </div>
+                            <div class="flex flex-col items-center">
+                                <label class="text-gray-700 flex items-center">Noite <i class="fas fa-moon ml-2"></i></label>
+                                <input type="checkbox" class="mt-2">
+                            </div>
                         </div>
                     </div>
                 </div>
-                <button class="deleteMenu bg-red-500 text-white px-4 py-2 rounded">Delete Menu</button>
+                <div class="flex justify-center">
+                    <button class="deleteMenu bg-red-500 text-white px-4 py-2 rounded">Delete Menu</button>
+                </div>
             </div>
         </div>
     </div>
 
     <script>
+        let selectedColor = '';
+
         function showSubMenu(selectElement) {
             var subMenu = selectElement.parentElement.nextElementSibling;
-            if (selectElement.value !== "selecione o Remedio") {
+            selectedColor = selectElement.value;
+            var parentDiv = selectElement.closest('.max-w-4xl');
+
+            if (selectedColor !== "selecione o Remedio") {
                 subMenu.classList.remove('hidden');
+                parentDiv.style.borderColor = selectedColor;
+                parentDiv.style.borderWidth = "2px";
+                parentDiv.style.color = selectedColor;
+
+                var checkboxes = parentDiv.querySelectorAll('input[type="checkbox"]');
+                checkboxes.forEach(function(checkbox) {
+                    checkbox.style.accentColor = selectedColor;
+                });
+
+                // Set the color for the sub menu
+                var subMenuSelect = subMenu.querySelector('select');
+                subMenuSelect.style.color = selectedColor;
             } else {
                 subMenu.classList.add('hidden');
+                parentDiv.style.borderColor = "";
+                parentDiv.style.borderWidth = "";
+                parentDiv.style.color = "";
+
+                var checkboxes = parentDiv.querySelectorAll('input[type="checkbox"]');
+                checkboxes.forEach(function(checkbox) {
+                    checkbox.style.accentColor = "";
+                });
+
+                // Reset the color for the sub menu
+                var subMenuSelect = subMenu.querySelector('select');
+                subMenuSelect.style.color = "";
             }
+        }
+
+        function changeMenuColor(selectElement) {
+            selectedColor = selectElement.value;
+            var parentDiv = selectElement.closest('.max-w-4xl');
+
+            parentDiv.style.borderColor = selectedColor;
+            parentDiv.style.borderWidth = "2px";
+            parentDiv.style.color = selectedColor;
+
+            var checkboxes = parentDiv.querySelectorAll('input[type="checkbox"]');
+            checkboxes.forEach(function(checkbox) {
+                checkbox.style.accentColor = selectedColor;
+            });
         }
 
         document.getElementById('addMenu').addEventListener('click', function() {
             var additionalMenus = document.getElementById('additionalMenus');
             var newMenu = document.createElement('div');
-            newMenu.classList.add('max-w-lg', 'mx-auto', 'bg-white', 'p-6', 'rounded', 'shadow-md', 'mt-6');
+            newMenu.classList.add('max-w-4xl', 'mx-auto', 'bg-white', 'p-12', 'rounded', 'shadow-md', 'mt-6');
             newMenu.innerHTML = `
                 <div class="mb-6">
                     <label class="block text-gray-700 font-bold mb-2">Select Example</label>
                     <select class="block w-full border border-gray-300 rounded py-2 px-3 text-gray-700" onchange="showSubMenu(this)">
-                        <option class="option-red">selecione o Remedio</option>
-                        <option class="option-green">Remedio 1</option>
-                        <option class="option-blue">Remedio 2</option>
+                        <option class="option-red red-bg" value="red">selecione o Remedio</option>
+                        <option class="option-green green-bg" value="green">Remedio 1</option>
+                        <option class="option-blue blue-bg" value="blue">Remedio 2</option>
+                        <option class="option-yellow yellow-bg" value="yellow">Remedio 3</option>
                     </select>
                 </div>
                 <div id="subMenu" class="hidden mb-6">
                     <label class="block text-gray-700 font-bold mb-2">Sub Menu</label>
-                    <select class="block w-full border border-gray-300 rounded py-2 px-3 text-gray-700">
-                        <option>Sub Option 1</option>
-                        <option>Sub Option 2</option>
-                        <option>Sub Option 3</option>
+                    <select class="block w-full border border-gray-300 rounded py-2 px-3 text-gray-700" onchange="changeMenuColor(this)">
+                        <option value="red">Sub Option 1</option>
+                        <option value="green">Sub Option 2</option>
+                        <option value="blue">Sub Option 3</option>
                     </select>
                 </div>
                 <div class="mb-6">
                     <label class="block text-gray-700 font-bold mb-2">Posologia:</label>
-                    <input type="text" class="block w-full border border-gray-300 rounded py-2 px-3 text-gray-700">
+                    <div class="flex space-x-4">
+                        <input type="text" class="block w-full border border-gray-300 rounded py-2 px-3 text-gray-700">
+                        <select class="block w-full border border-gray-300 rounded py-2 px-3 text-gray-700">
+                            <option value="option1">Option 1</option>
+                            <option value="option2">Option 2</option>
+                            <option value="option3">Option 3</option>
+                        </select>
+                    </div>
                 </div>
                 <div class="mb-6">
                     <label class="block text-gray-700 font-bold mb-2">Horarios para Tomar Remedios</label>
                     <div class="flex flex-col space-y-2">
-                        <div class="flex items-center">
-                            <input type="checkbox" class="mr-2">
-                            <label class="text-gray-700">Pela Manhã <img src="https://storage.googleapis.com/a1aa/image/u5wnLjCtNsaQDJWkZmzSudLS3ebL2h5nczsHiD4LGmvw9F5JA.jpg" alt="Sun icon" width="20" height="20"></label>
-                        </div>
-                        <div class="flex items-center">
-                            <input type="checkbox" class="mr-2">
-                            <label class="text-gray-700">Almoço <i class="fas fa-clock"></i></label>
-                        </div>
-                        <div class="flex items-center">
-                            <input type="checkbox" class="mr-2">
-                            <label class="text-gray-700">Noite <i class="fas fa-moon"></i></label>
+                        <div class="flex items-center justify-between">
+                            <div class="flex flex-col items-center">
+                                <label class="text-gray-700 flex items-center">Pela Manhã <img src="https://storage.googleapis.com/a1aa/image/u5wnLjCtNsaQDJWkZmzSudLS3ebL2h5nczsHiD4LGmvw9F5JA.jpg" alt="Sun icon" width="20" height="20" class="ml-2"></label>
+                                <input type="checkbox" class="mt-2" style="accent-color: ${selectedColor};">
+                            </div>
+                            <div class="flex flex-col items-center">
+                                <label class="text-gray-700 flex items-center">Almoço <i class="fas fa-clock ml-2"></i></label>
+                                <input type="checkbox" class="mt-2" style="accent-color: ${selectedColor};">
+                            </div>
+                            <div class="flex flex-col items-center">
+                                <label class="text-gray-700 flex items-center">Noite <i class="fas fa-moon ml-2"></i></label>
+                                <input type="checkbox" class="mt-2" style="accent-color: ${selectedColor};">
+                            </div>
                         </div>
                     </div>
                 </div>
-                <button class="deleteMenu bg-red-500 text-white px-4 py-2 rounded">Delete Menu</button>
+                <div class="flex justify-center">
+                    <button class="deleteMenu bg-red-500 text-white px-4 py-2 rounded">Delete Menu</button>
+                </div>
             `;
             additionalMenus.appendChild(newMenu);
 
